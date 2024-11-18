@@ -91,7 +91,7 @@
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="cta-btn" href="#appointment">Make an Appointment</a>
+        <a class="cta-btn" href="{% url 'appointment' %}">Make an Appointment</a>
 
       </div>
 
@@ -313,15 +313,18 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
             <h3>Our Modern Facilities</h3>
             <p>At Medicio, we combine cutting-edge technology with patient-focused care. From advanced diagnostics and robotic surgeries to 24/7 emergency services, our modern facilities are designed to provide efficient, high-quality care for all your health needs.</p>
 
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+            <div class=" d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                 <img src="{% static 'assets/img/emergency_care.png' %}" class="icon-image" style="border-radius:20px;" alt="">
               <i class="fa-solid fa-hand-holding-medical flex-shrink-0"></i>
+
               <div>
                 <h4><a href="" class="stretched-link">Emergency Department (ED)</a></h4>
                 <p>Equipped with state-of-the-art technology, our Emergency Department provides fast, life-saving care for critical conditions 24/7.</p>
               </div>
             </div><!-- End Icon Box -->
 
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+            <div class=" d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+                   <img src="{% static 'assets/img/surgical_care.png' %}" class="icon-image" style="border-radius:20px;" alt="">
               <i class="fa-solid fa-suitcase-medical flex-shrink-0"></i>
               <div>
                 <h4><a href="" class="stretched-link">Surgical Suites</a></h4>
@@ -329,15 +332,19 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
               </div>
             </div><!-- End Icon Box -->
 
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+            <div class="d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+                  <img src="{% static 'assets/img/diagnosis_centre.png' %}" class="icon-image" style="border-radius:20px;" alt="">
+
               <i class="fa-solid fa-staff-snake flex-shrink-0"></i>
+
               <div>
                 <h4><a href="" class="stretched-link">Diagnostic Imaging Center</a></h4>
                 <p>We offer high-resolution MRI, CT scans, and X-rays for accurate diagnostics, helping doctors detect and treat conditions early.</p>
               </div>
             </div><!-- End Icon Box -->
 
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+            <div class="d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
+                <img src="{% static 'assets/img/ICU.png' %}" class="icon-image" style="border-radius:20px;" alt="">
               <i class="fa-solid fa-lungs flex-shrink-0"></i>
               <div>
                 <h4><a href="" class="stretched-link">Intensive Care Unit (ICU)</a></h4>
@@ -363,11 +370,14 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
 
       <div class="container">
 
+
+
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item  position-relative">
               <div class="icon">
+                  <img src="{% static 'assets/img/emergency.png' %}" class="img-fluid" style="border-radius:20px;" alt="">
                 <i class="fas fa-heartbeat"></i>
               </div>
               <a href="#" class="stretched-link">
@@ -380,6 +390,7 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon">
+                    <img src="{% static 'assets/img/surgical_care.png' %}" class="img-fluid" style="border-radius:20px;" alt="">
                 <i class="fas fa-pills"></i>
               </div>
               <a href="#" class="stretched-link">
@@ -392,6 +403,7 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
               <div class="icon">
+                   <img src="{% static 'assets/img/maternity.png' %}" class="img-fluid" style="border-radius:20px;" alt="">
                 <i class="fas fa-hospital-user"></i>
               </div>
               <a href="#" class="stretched-link">
@@ -404,6 +416,7 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon">
+                   <img src="{% static 'assets/img/diagnsotics.png' %}" class="img-fluid" style="border-radius:20px;" alt="">
                 <i class="fas fa-dna"></i>
               </div>
               <a href="#" class="stretched-link">
@@ -417,6 +430,7 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-item position-relative">
               <div class="icon">
+                <img src="{% static 'assets/img/rehabilitation.png' %}" class="img-fluid" style="border-radius:20px;" alt="">
                 <i class="fas fa-wheelchair"></i>
               </div>
               <a href="#" class="stretched-link">
@@ -430,6 +444,7 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
               <div class="icon">
+                    <img src="{% static 'assets/img/telemedicine_app.png' %}" class="img-fluid" style="border-radius:20px;" alt="">
                 <i class="fas fa-notes-medical"></i>
               </div>
               <a href="#" class="stretched-link">
@@ -446,65 +461,6 @@ Welcome to Medicio, where compassionate care meets advanced medical expertise. W
 
     </section><!-- /Services Section -->
 
-    <!-- Appointment Section -->
-    <section id="appointment" class="appointment section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>MAKE AN APPOINTMENT</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select" required="">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select" required="">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-          </div>
-          <div class="mt-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-            <div class="text-center"><button type="submit">Make an Appointment</button></div>
-          </div>
-        </form>
-
-      </div>
-
-    </section><!-- /Appointment Section -->
 
     <!-- Tabs Section -->
     <section id="tabs" class="tabs section">
