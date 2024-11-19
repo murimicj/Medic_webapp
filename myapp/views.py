@@ -1,5 +1,9 @@
 from django.shortcuts import render,redirect
+from django.template.context_processors import request
+
 from myapp.models import Appointment
+from myapp.forms import AppointmentForm
+
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -23,10 +27,35 @@ def appointment(request):
 
         )
         myappointment.save()
-        return redirect('/appointment')
+        return redirect('/show')
     else:
         return render(request,'appointment.html')
 
+def show(request):
+    allappointments=Appointment.objects.all()
+    return render(request, 'show.html', {'appointment':allappointments})
+
+def delete(request,id):
+    appoint=Appointment.objects.get(id=id)
+    appoint.delete()
+    return redirect('show')
 
 
+def edit(request,id):
+    editappointment=Appointment.objects.get(id=id)
+    return render(request,'edit.html',{'appointment':editappointment})
 
+def update(request,id):
+    updateinfo=Appointment.objects.get(id=id)
+    form=AppointmentForm(request.POST,instance=updateinfo)
+    if form.is_valid():
+        form.save()
+        return redirect('/show')
+    else:
+        return render(request,'edit.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def login(request):
+    return  render(request,'login.html')
