@@ -1,13 +1,29 @@
+from enum import member
+
 from django.shortcuts import render,redirect
 from django.template.context_processors import request
 
-from myapp.models import Appointment
+from myapp.models import Appointment,Member
 from myapp.forms import AppointmentForm
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    if request.method == 'POST':
+        if Member.objects.filter(
+            username=request.POST['username'],
+            password=request.POST['password'],
+        ).exists():
 
+            members=Member.objects.get(
+                username=request.POST['username'],
+                password=request.POST['password'],
+            )
+            return render(request,'index.html',{'members':members})
+        else:
+            return render(request,'login.html')
+
+    else:
+        return render(request,'login.html')
 def service(request):
     return render(request,'service-details.html')
 
@@ -55,7 +71,18 @@ def update(request,id):
         return render(request,'edit.html')
 
 def register(request):
-    return render(request, 'register.html')
+  if request.method == "POST":
+
+      members=Member(
+          name=request.POST['name'],
+          username=request.POST['username'],
+          password=request.POST['password'],
+      )
+      members.save()
+      return redirect('/login')
+  else:
+      return render(request, 'register.html')
+
 
 def login(request):
     return  render(request,'login.html')
