@@ -3,8 +3,9 @@ from enum import member
 from django.shortcuts import render,redirect
 from django.template.context_processors import request
 
-from myapp.models import Appointment,Member
-from myapp.forms import AppointmentForm
+from myapp.models import Appointment, Member, ImageModel
+from myapp.forms import AppointmentForm, ImageUploadForm
+
 
 # Create your views here.
 def index(request):
@@ -86,3 +87,23 @@ def register(request):
 
 def login(request):
     return  render(request,'login.html')
+
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/showimage')
+    else:
+        form = ImageUploadForm()
+    return render(request, 'upload_image.html', {'form': form})
+
+def show_image(request):
+    images = ImageModel.objects.all()
+    return render(request, 'show_image.html', {'images': images})
+
+def imagedelete(request, id):
+    image = ImageModel.objects.get(id=id)
+    image.delete()
+    return redirect('/showimage')
